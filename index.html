@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FootAI | دستیار هوشمند فوتبال</title>
+  <meta name="description" content="آمار مسابقه‌ات را وارد کن تا FootAI عملکردت را تحلیل کند، امتیاز بدهد و پیشنهاد تمرین و جای‌گیری بدهد.">
+  <meta name="theme-color" content="#05100b">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-pitch" aria-hidden="true"></div>
+  <div class="bg-light light-a" aria-hidden="true"></div>
+  <div class="bg-light light-b" aria-hidden="true"></div>
+  <div class="sparks" aria-hidden="true">
+    <i style="--x:6%;--d:11s;--w:-2s"></i><i style="--x:14%;--d:14s;--w:-7s"></i>
+    <i style="--x:23%;--d:9s;--w:-4s"></i><i style="--x:35%;--d:13s;--w:-9s"></i>
+    <i style="--x:47%;--d:10s;--w:-1s"></i><i style="--x:58%;--d:15s;--w:-6s"></i>
+    <i style="--x:66%;--d:12s;--w:-3s"></i><i style="--x:77%;--d:9s;--w:-8s"></i>
+    <i style="--x:86%;--d:13s;--w:-5s"></i><i style="--x:94%;--d:11s;--w:-10s"></i>
+  </div>
+
+  <!-- ===== نوار بالا ===== -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-in">
+      <a class="brand" href="#top" dir="ltr"><span class="brand-ball" aria-hidden="true">⚽</span> Foot<b>AI</b></a>
+      <nav class="nav" id="topNav" aria-label="بخش‌های سایت">
+        <a href="#keyCard">🔑 اتصال</a>
+        <a href="#formCard">📋 آمار</a>
+        <a href="#resultCard" data-report>🏆 گزارش</a>
+        <a href="#about">ℹ️ درباره</a>
+      </nav>
+      <span class="maker">سازنده: <b>آرتین قره‌داغی</b></span>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+
+    <!-- ===== سربرگ ===== -->
+    <section class="hero">
+      <span class="badge"><span class="dot"></span> تحلیل با هوش مصنوعی DeepSeek</span>
+      <h1>دستیار هوشمند <span class="accent">فوتبال</span></h1>
+      <p class="lead">آمار مسابقه‌ات را وارد کن. FootAI مثل یک دستیار مربی عملکردت را بررسی می‌کند، به تو امتیاز می‌دهد و می‌گوید روی چه چیزی تمرین کنی و کجای زمین بایستی.</p>
+
+      <!-- صحنه متحرک: شوت و گل -->
+      <div class="scene" aria-hidden="true">
+        <div class="stands"></div>
+        <span class="beam beam-a"></span>
+        <span class="beam beam-b"></span>
+        <span class="lamp lamp-a"></span>
+        <span class="lamp lamp-b"></span>
+        <div class="ground"></div>
+        <svg class="goal" viewBox="0 0 96 74" xmlns="http://www.w3.org/2000/svg">
+          <g class="net" stroke="rgba(255,255,255,.32)" stroke-width="1">
+            <path d="M14 8V74M24 8V74M34 8V74M44 8V74M54 8V74M64 8V74M74 8V74M84 8V74"/>
+            <path d="M4 16H92M4 26H92M4 36H92M4 46H92M4 56H92M4 66H92"/>
+          </g>
+          <path d="M4 74V4H92V74" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+        </svg>
+        <span class="shot-shadow"></span>
+        <div class="shot">
+          <svg class="ball" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="30" fill="#f8fafc" stroke="#06140d" stroke-width="2.5"/>
+            <polygon points="32,20 43,28 39,41 25,41 21,28" fill="#06140d"/>
+            <path d="M32 20V3M43 28l16-5M39 41l10 14M25 41 15 55M21 28 5 23" stroke="#06140d" stroke-width="2.5" fill="none"/>
+            <path d="M24 4l8 4 8-4M57 17l1 9 6 4M54 50l-8 2-2 8M10 50l8 2 2 8M7 17l-1 9-6 4" fill="#06140d"/>
+          </svg>
+        </div>
+        <span class="goal-text">گــــل! 🎉</span>
+      </div>
+
+      <!-- بخش‌های سایت -->
+      <nav class="quick" aria-label="رفتن به بخش‌ها">
+        <a class="q" href="#keyCard"><span class="q-ic">🔑</span><b>اتصال</b><small>کلید هوش مصنوعی</small></a>
+        <a class="q" href="#formCard"><span class="q-ic">📋</span><b>ورود آمار</b><small>برگه مسابقه</small></a>
+        <a class="q" href="#resultCard" data-report><span class="q-ic">🏆</span><b>گزارش</b><small>امتیاز و تحلیل</small></a>
+        <a class="q" href="#about"><span class="q-ic">ℹ️</span><b>درباره</b><small>معرفی پروژه</small></a>
+      </nav>
+    </section>
+
+    <!-- ===== اتصال به هوش مصنوعی ===== -->
+    <section class="card key-card reveal" id="keyCard">
+      <div class="card-head">
+        <h2 class="card-title"><span class="title-ic" aria-hidden="true">🔑</span> اتصال به هوش مصنوعی</h2>
+        <span class="status" id="keyStatus">وصل نیست</span>
+      </div>
+
+      <div id="keyForm">
+        <p class="note">کلید API را یک بار وارد کن. کلید فقط در مرورگر همین دستگاه ذخیره می‌شود و جز برای خود سرویس هوش مصنوعی، به هیچ جای دیگری فرستاده نمی‌شود. بدون کلید هم گزارش پایه را می‌بینی.</p>
+        <div class="key-grid">
+          <div class="field">
+            <label for="provider">سرویس</label>
+            <select id="provider">
+              <option value="metis">Metis (DeepSeek)</option>
+              <option value="deepseek">DeepSeek (سایت رسمی)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="keyInput">کلید API</label>
+            <div class="pass-wrap">
+              <input id="keyInput" type="password" dir="ltr" autocomplete="off" spellcheck="false" placeholder="کلید را اینجا بچسبان">
+              <button type="button" class="eye" id="keyEye" aria-label="نمایش کلید" title="نمایش / پنهان کردن">👁️</button>
+            </div>
+          </div>
+        </div>
+        <details class="adv">
+          <summary>تنظیمات پیشرفته</summary>
+          <div class="field">
+            <label for="modelInput">نام مدل</label>
+            <input id="modelInput" type="text" dir="ltr" autocomplete="off" spellcheck="false">
+            <small class="hint">اگر خالی بماند، مدل پیش‌فرض همان سرویس استفاده می‌شود.</small>
+          </div>
+        </details>
+        <div class="alert hidden" id="keyError" role="alert"></div>
+        <button class="btn ghost" id="keySaveBtn" type="button">💾 ذخیره و اتصال</button>
+      </div>
+
+      <div class="key-saved hidden" id="keySaved">
+        <span class="key-ok">✅ وصل به <b id="savedProvider"></b> · کلید <code id="savedMask" dir="ltr"></code></span>
+        <button class="btn ghost small" id="keyClearBtn" type="button">تغییر کلید</button>
+      </div>
+    </section>
+
+    <!-- ===== فرم ===== -->
+    <section class="card reveal" id="formCard">
+      <div class="card-head">
+        <h2 class="card-title"><span class="title-ic" aria-hidden="true">📋</span> برگه آمار مسابقه</h2>
+        <button class="btn ghost small" id="sampleBtn" type="button">✨ نمونه آماده</button>
+      </div>
+
+      <form id="playerForm" novalidate>
+        <fieldset class="block">
+          <legend>اطلاعات بازیکن</legend>
+          <div class="grid">
+            <div class="field">
+              <label for="name">نام بازیکن</label>
+              <input id="name" type="text" maxlength="40" placeholder="مثلاً آرتین" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="minutes">دقایق بازی <span class="optional">(اختیاری)</span></label>
+              <input id="minutes" type="text" inputmode="numeric" maxlength="3" placeholder="۹۰" autocomplete="off">
+              <small class="hint">اگر خالی بماند، ۹۰ دقیقه حساب می‌شود</small>
+            </div>
+            <div class="field full">
+              <span class="label" id="posLabel">پست بازی</span>
+              <div class="positions" id="positions" role="radiogroup" aria-labelledby="posLabel">
+                <label class="pos"><input type="radio" name="position" value="دروازه‌بان"><span><i>🧤</i>دروازه‌بان</span></label>
+                <label class="pos"><input type="radio" name="position" value="مدافع"><span><i>🛡️</i>مدافع</span></label>
+                <label class="pos"><input type="radio" name="position" value="هافبک"><span><i>🎯</i>هافبک</span></label>
+                <label class="pos"><input type="radio" name="position" value="وینگر"><span><i>⚡</i>وینگر</span></label>
+                <label class="pos"><input type="radio" name="position" value="مهاجم"><span><i>🔥</i>مهاجم</span></label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="block">
+          <legend>آمار مسابقه</legend>
+          <div class="stats-grid" id="statsGrid"></div>
+
+          <div class="live" aria-live="polite">
+            <div class="live-top"><span>دقت پاس</span><b id="liveText">هنوز پاسی وارد نشده</b></div>
+            <div class="live-track"><div class="live-fill" id="liveFill"></div></div>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="notes">توضیحات <span class="optional">(اختیاری)</span></label>
+          <textarea id="notes" rows="3" maxlength="400" placeholder="مثلاً: بازی دوستانه مدرسه بود، نیمه دوم خسته شدم، با پای چپ راحت نیستم…"></textarea>
+          <small class="hint counter"><span id="notesCount">۰</span> / ۴۰۰</small>
+        </div>
+
+        <div class="alert hidden" id="formError" role="alert"></div>
+
+        <button class="btn primary" id="submitBtn" type="submit">⚽ تحلیل عملکرد</button>
+      </form>
+    </section>
+
+    <!-- ===== نتیجه ===== -->
+    <section class="card result hidden" id="resultCard" aria-live="polite">
+      <nav class="rnav" id="resultNav" aria-label="بخش‌های گزارش">
+        <a href="#secScore">📊 امتیاز</a>
+        <a href="#secStats">📈 آمار</a>
+        <a href="#secTips">✅ قوت و ضعف</a>
+        <a href="#secPitch">📍 جای‌گیری</a>
+        <a href="#secAI">🤖 تحلیل AI</a>
+      </nav>
+
+      <div class="scoreboard reveal" id="secScore">
+        <div class="sb-player">
+          <div class="jersey" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="jerseyPaint" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#c6ff3d"/>
+                  <stop offset="1" stop-color="#22c55e"/>
+                </linearGradient>
+              </defs>
+              <path d="M32 8 44 4q6 8 12 0l12 4 24 16-10 18-10-6v56H28V36l-10 6L8 24Z" fill="url(#jerseyPaint)" stroke="#052e16" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M44 4q6 8 12 0" fill="none" stroke="#052e16" stroke-width="3"/>
+            </svg>
+            <span id="jerseyText"></span>
+          </div>
+          <div class="sb-info">
+            <span class="sb-pos" id="sbPos"></span>
+            <h2 id="sbName"></h2>
+            <span class="sb-min" id="sbMin"></span>
+          </div>
+        </div>
+        <div class="sb-rating">
+          <div class="ring big" id="sbRing"><strong id="sbRating"></strong></div>
+          <div>
+            <span class="sb-label">امتیاز FootAI</span>
+            <span class="sb-verdict" id="sbVerdict"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tiles" id="secStats"></div>
+
+      <div class="two" id="secTips">
+        <div class="panel reveal">
+          <h3>✅ نقاط قوت</h3>
+          <ul class="list good" id="strengths"></ul>
+        </div>
+        <div class="panel reveal">
+          <h3>🎯 نیاز به تمرین</h3>
+          <ul class="list warn" id="improve"></ul>
+        </div>
+      </div>
+
+      <div class="panel reveal" id="secPitch">
+        <h3>📍 پیشنهاد جای‌گیری</h3>
+        <div class="pitch-box">
+          <svg class="pitch" id="pitch" viewBox="0 0 120 80" role="img" aria-label="نقشه زمین و محدوده پیشنهادی برای این پست">
+            <defs>
+              <pattern id="turfPattern" width="20" height="80" patternUnits="userSpaceOnUse">
+                <rect width="10" height="80" fill="#14532d"/>
+                <rect x="10" width="10" height="80" fill="#166534"/>
+              </pattern>
+            </defs>
+            <rect width="120" height="80" rx="3" fill="url(#turfPattern)"/>
+            <g class="lines" fill="none" stroke="rgba(255,255,255,.8)" stroke-width=".6">
+              <rect x="3" y="3" width="114" height="74" pathLength="1"/>
+              <line x1="60" y1="3" x2="60" y2="77" pathLength="1"/>
+              <circle cx="60" cy="40" r="9" pathLength="1"/>
+              <rect x="3" y="20" width="16" height="40" pathLength="1"/>
+              <rect x="3" y="31" width="5" height="18" pathLength="1"/>
+              <path d="M19 33a8 8 0 0 1 0 14" pathLength="1"/>
+              <rect x="101" y="20" width="16" height="40" pathLength="1"/>
+              <rect x="112" y="31" width="5" height="18" pathLength="1"/>
+              <path d="M101 33a8 8 0 0 0 0 14" pathLength="1"/>
+              <rect x=".6" y="35" width="2.4" height="10" pathLength="1"/>
+              <rect x="117" y="35" width="2.4" height="10" pathLength="1"/>
+            </g>
+            <circle cx="60" cy="40" r=".9" fill="#fff"/>
+            <rect id="zone1" class="zone" rx="3"/>
+            <rect id="zone2" class="zone" rx="3"/>
+            <circle id="dot1" class="pdot" r="2.4"/>
+            <circle id="dot2" class="pdot" r="2.4"/>
+          </svg>
+          <div class="pitch-legend">
+            <span>🥅 دروازه خودی</span>
+            <span class="arrow">⬅ جهت حمله</span>
+            <span>دروازه حریف 🥅</span>
+          </div>
+        </div>
+        <p class="pos-tip" id="posTip"></p>
+      </div>
+
+      <div class="panel ai-panel reveal" id="secAI">
+        <div class="ai-head">
+          <h3>🤖 تحلیل هوش مصنوعی</h3>
+          <button class="btn ghost small" id="aiRetry" type="button">🔄 دوباره</button>
+        </div>
+        <div id="aiBody"></div>
+      </div>
+
+      <p class="disclaimer">⚠️ گزارش آموزشی است؛ حرف آخر را مربی می‌زند.</p>
+
+      <div class="actions">
+        <button class="btn primary" id="editBtn" type="button">✏️ ویرایش آمار</button>
+        <button class="btn ghost" id="newBtn" type="button">👟 بازیکن جدید</button>
+        <button class="btn ghost" id="printBtn" type="button">🖨️ چاپ گزارش</button>
+      </div>
+    </section>
+
+    <!-- ===== درباره پروژه ===== -->
+    <section class="about" id="about">
+      <h2 class="about-title">درباره پروژه</h2>
+      <div class="about-grid">
+        <article class="about-card reveal">
+          <span class="about-ic">❓</span>
+          <h3>مشکل</h3>
+          <p>خیلی از بازیکنان نوجوان برای شناختن عملکرد خودشان و پیدا کردن زمینه‌های پیشرفت به راهنمایی نیاز دارند.</p>
+        </article>
+        <article class="about-card reveal">
+          <span class="about-ic">🚀</span>
+          <h3>هدف</h3>
+          <p>با بررسی آمار ساده مسابقه، به بازیکن کمک می‌کنیم عملکردش را بهتر بشناسد و پیشنهاد تمرین و جای‌گیری بگیرد.</p>
+        </article>
+        <article class="about-card reveal">
+          <span class="about-ic">🧠</span>
+          <h3>چطور کار می‌کند؟</h3>
+          <p>دقت پاس، دقت شوت و امتیاز با محاسبه و شرط‌ها در مرورگر حساب می‌شوند و هوش مصنوعی DeepSeek تحلیل کامل‌تری می‌نویسد.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== پاورقی ===== -->
+  <footer class="foot">
+    <div class="foot-in">
+      <span class="foot-logo" dir="ltr">⚽ Foot<b>AI</b></span>
+      <p class="teacher">مدرس: <b>بیتا خدادادی</b></p>
+      <p class="phone">شماره: <a href="tel:09391830463" dir="ltr">۰۹۳۹۱۸۳۰۴۶۳</a></p>
+      <p class="foot-note">پروژه آموزشی برنامه‌نویسی و هوش مصنوعی</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
